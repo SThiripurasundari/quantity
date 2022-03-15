@@ -3,21 +3,23 @@ package com.tw.pathashala;
 public class Quantity {
 
     private final double magnitude;
+    private final Metrics unit;
 
-    private Quantity(double magnitude) {
+    private Quantity(double magnitude, Metrics metrics) {
         this.magnitude = magnitude;
+        this.unit = metrics;
     }
 
     public static Quantity meter(double magnitude) {
-        return new Quantity(100 * magnitude);
+        return new Quantity(magnitude,Metrics.METER);
     }
 
     public static Quantity centimeter(double magnitude) {
-        return new Quantity(magnitude);
+        return new Quantity(magnitude, Metrics.CENTIMETER);
     }
 
     public static Quantity kilometer(double magnitude) {
-        return new Quantity(magnitude * 100000);
+        return new Quantity(magnitude, Metrics.KILOMETER);
     }
 
     @Override
