@@ -1,6 +1,7 @@
 package com.tw.pathashala;
 
 import static com.tw.pathashala.Metrics.getInCentimeter;
+import static com.tw.pathashala.Metrics.getInMeter;
 
 public class Quantity {
 
@@ -41,9 +42,10 @@ public class Quantity {
         return super.hashCode();
     }
 
-    public double add(Quantity hundredCentimeter) {
-         return  (getInCentimeter(this.magnitude,this.unit) +
-                getInCentimeter(hundredCentimeter.magnitude, hundredCentimeter.unit));
-
-    }
+    public Quantity add(Quantity quantity) {
+        if (this.unit == Metrics.METER ){
+            return meter(getInMeter(quantity.magnitude, this.unit) + this.magnitude);
+        }
+        return centimeter(getInCentimeter(quantity.magnitude, quantity.unit) + this.magnitude);
+        }
 }

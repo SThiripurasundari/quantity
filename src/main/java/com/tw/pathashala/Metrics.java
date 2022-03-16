@@ -16,7 +16,7 @@ public enum Metrics {
         return metrics.conversionValue * magnitude;
     }
 
-
-
-
+    public static double getInMeter(double magnitude, Metrics metrics){
+        return magnitude/metrics.conversionValue;
+    }
 }

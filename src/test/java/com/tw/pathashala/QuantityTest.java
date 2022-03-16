@@ -49,10 +49,13 @@ class QuantityTest {
         Quantity hundredCentimeter = centimeter(100);
         Quantity twoMeter = meter(2);
 
-        Quantity oneMeterPlusHundredCentimeter = centimeter(oneMeter.add(hundredCentimeter));
+        Quantity oneMeterPlusHundredCentimeter = oneMeter.add(hundredCentimeter);
 
         assertThat(oneMeterPlusHundredCentimeter, is(equalTo(twoMeter)));
     }
 
+    @Test
+    void twoHundredCentimeterplusOneKilometerIs() {
 
+    }
 }
