@@ -80,5 +80,21 @@ class QuantityTest {
 
     }
 
+    @Test
+    void should_equate_2000_cm_minus_1_m_is_1900_cm() {
+
+        Quantity twoThousandCentimeter = centimeter(2000);
+        Quantity oneMeter = meter(1);
+        Quantity thousandNineHundredCentimeter = centimeter(1900);
+
+        Quantity twoThousandCentimeterMinusOneMeter = twoThousandCentimeter.subtract(oneMeter);
+
+        assertThat(twoThousandCentimeterMinusOneMeter, is(equalTo(thousandNineHundredCentimeter)));
+
+
+
+    }
+
+
 
 }
