@@ -55,7 +55,16 @@ class QuantityTest {
     }
 
     @Test
-    void twoHundredCentimeterplusOneKilometerIs() {
+    void twoHundredCentimeterPlusOneKilometerIsOneLakhTwoHundredCentimeter() {
+
+        Quantity twoHundredCentimeter = centimeter(200);
+        Quantity oneKilometer = kilometer(1);
+        Quantity oneLakhTwoHundredCentimeter = centimeter(100200);
+
+        Quantity twoHundredCentimeterPlusOneKilometer = twoHundredCentimeter.add(oneKilometer);
+
+        assertThat(twoHundredCentimeterPlusOneKilometer, is(equalTo(oneLakhTwoHundredCentimeter)));
+
 
     }
 }

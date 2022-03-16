@@ -1,7 +1,6 @@
 package com.tw.pathashala;
 
-import static com.tw.pathashala.Metrics.getInCentimeter;
-import static com.tw.pathashala.Metrics.getInMeter;
+import static com.tw.pathashala.Metrics.*;
 
 public class Quantity {
 
@@ -34,7 +33,7 @@ public class Quantity {
             return false;
         }
         Quantity that = (Quantity) obj;
-        return (getInCentimeter(this.magnitude,this.unit) == getInCentimeter(that.magnitude, that.unit));
+        return (getInCentimeter(this.magnitude, this.unit) == getInCentimeter(that.magnitude, that.unit));
     }
 
     @Override
@@ -43,9 +42,9 @@ public class Quantity {
     }
 
     public Quantity add(Quantity quantity) {
-        if (this.unit == Metrics.METER ){
-            return meter(getInMeter(quantity.magnitude, this.unit) + this.magnitude);
+        if (this.unit == Metrics.METER) {
+            return meter(getInCentimeterToMeter(quantity.magnitude, this.unit) + this.magnitude);
         }
         return centimeter(getInCentimeter(quantity.magnitude, quantity.unit) + this.magnitude);
-        }
+    }
 }
