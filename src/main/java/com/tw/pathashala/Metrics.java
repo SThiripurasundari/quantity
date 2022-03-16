@@ -1,12 +1,12 @@
 package com.tw.pathashala;
 
-public enum Metrics
-{
+public enum Metrics {
     CENTIMETER(1),
     METER(100),
     KILOMETER(100000);
 
-    public Double conversionValue;
+
+    public final Double conversionValue;
 
     Metrics(double conversionValue) {
         this.conversionValue = conversionValue;
