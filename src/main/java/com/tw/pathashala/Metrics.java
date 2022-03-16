@@ -5,10 +5,15 @@ public enum Metrics {
     METER(100),
     KILOMETER(100000);
 
-
-    public final Double conversionValue;
+    private final Double conversionValue;
 
     Metrics(double conversionValue) {
         this.conversionValue = conversionValue;
     }
+
+    public static double getInCentimeter(double magnitude, Metrics metrics) {
+
+        return metrics.conversionValue * magnitude;
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.tw.pathashala;
 
-import static com.tw.pathashala.QuantityUtil.getInCentimeter;
+import static com.tw.pathashala.Metrics.getInCentimeter;
 
 public class Quantity {
 
@@ -17,7 +17,6 @@ public class Quantity {
     }
 
     public static Quantity centimeter(double magnitude) {
-
         return new Quantity(magnitude, Metrics.CENTIMETER);
     }
 
@@ -34,17 +33,14 @@ public class Quantity {
             return false;
         }
         Quantity that = (Quantity) obj;
-
-        return Double.compare(getInCentimeter(that.magnitude, that.unit),
-                getInCentimeter(this.magnitude, this.unit)) == 0;
-
+        return (getInCentimeter(this.magnitude,this.unit) == getInCentimeter(that.magnitude, that.unit));
     }
+
 
 
 
     @Override
     public int hashCode() {
-
         return super.hashCode();
     }
 }
