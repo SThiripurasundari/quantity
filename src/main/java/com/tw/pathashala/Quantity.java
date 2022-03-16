@@ -36,11 +36,14 @@ public class Quantity {
         return (getInCentimeter(this.magnitude,this.unit) == getInCentimeter(that.magnitude, that.unit));
     }
 
-
-
-
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    public double add(Quantity hundredCentimeter) {
+         return  (getInCentimeter(this.magnitude,this.unit) +
+                getInCentimeter(hundredCentimeter.magnitude, hundredCentimeter.unit));
+
     }
 }
