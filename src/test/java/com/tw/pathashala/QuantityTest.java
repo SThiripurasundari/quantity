@@ -65,6 +65,20 @@ class QuantityTest {
 
         assertThat(twoHundredCentimeterPlusOneKilometer, is(equalTo(oneLakhTwoHundredCentimeter)));
 
+    }
+
+    @Test
+    void should_equate_1m_minus_50cm_is_0_point_5m() {
+
+        Quantity oneMeter = meter(1);
+        Quantity fiftyCentimeter = centimeter(50);
+        Quantity zeroPointFiveMeter = meter(0.5);
+
+        Quantity oneMeterMinusFiftyCentimeter = oneMeter.subtract(fiftyCentimeter);
+
+        assertThat(oneMeterMinusFiftyCentimeter, is(equalTo(zeroPointFiveMeter)));
 
     }
+
+
 }

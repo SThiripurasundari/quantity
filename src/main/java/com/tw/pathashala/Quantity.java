@@ -42,9 +42,17 @@ public class Quantity {
     }
 
     public Quantity add(Quantity quantity) {
-        if (this.unit == Metrics.METER) {
-            return meter(getInCentimeterToMeter(quantity.magnitude, this.unit) + this.magnitude);
-        }
-        return centimeter(getInCentimeter(quantity.magnitude, quantity.unit) + this.magnitude);
+        double sumOfQuantities = this.unit.metricConversion(quantity.magnitude, quantity.unit) + this.magnitude;
+        return new Quantity(sumOfQuantities, this.unit);
+
+    }
+
+    public Quantity subtract(Quantity fiftyCentimeter) {
+
+        double differenceOfQuantities = this.magnitude - this.unit.metricConversion(fiftyCentimeter.magnitude, fiftyCentimeter.unit);
+
+        return new Quantity(differenceOfQuantities, this.unit);
+
+
     }
 }

@@ -15,7 +15,8 @@ public enum Metrics {
         return metrics.conversionValue * magnitude;
     }
 
-    public static double getInCentimeterToMeter(double magnitude, Metrics metrics) {
-        return magnitude / metrics.conversionValue;
+    public double metricConversion(double magnitude, Metrics metrics) {
+        double baseValue = magnitude * metrics.conversionValue;
+        return baseValue / this.conversionValue;
     }
 }
